@@ -9,7 +9,7 @@ async def upload_file(file: UploadFile = File(...)):
     filename = file.filename
 
     if filename.endswith(".csv"):
-        df = pd.read_csv(file.file)
+        df = pd.read_csv(file.file, sep=";")
 
     elif filename.endswith(".xlsx"):
         df = pd.read_excel(file.file)
