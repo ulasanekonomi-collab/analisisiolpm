@@ -8,7 +8,6 @@ async def upload_file(file: UploadFile = File(...)):
 
     filename = file.filename
 
-    # membaca file berdasarkan ekstensi
     if filename.endswith(".csv"):
         df = pd.read_csv(file.file)
 
@@ -24,5 +23,5 @@ async def upload_file(file: UploadFile = File(...)):
         "filename": filename,
         "rows": len(df),
         "columns": len(df.columns),
-        "column_names": list(df.columns)
+        "column_names": [str(col) for col in df.columns]
     }
