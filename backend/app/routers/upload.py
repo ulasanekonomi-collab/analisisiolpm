@@ -23,5 +23,7 @@ async def upload_file(file: UploadFile = File(...)):
         "filename": filename,
         "rows": len(df),
         "columns": len(df.columns),
-        "column_names": [str(col) for col in df.columns]
+        "sector_codes": list(df.iloc[:, 0]),
+        "sector_names": list(df.iloc[:, 1]),
+        "matrix_dimension": f"{len(df)} x {len(df.columns)-2}"
     }
