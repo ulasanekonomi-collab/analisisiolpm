@@ -2,7 +2,13 @@ from fastapi import APIRouter, UploadFile, File
 import pandas as pd
 
 router = APIRouter()
-
+stored_data = {
+    "transaction": None,
+    "environment": None,
+    "market": None,
+    "primary": None,
+    "final_demand": None
+}
 
 def read_matrix_file(file):
 
